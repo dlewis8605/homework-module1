@@ -257,3 +257,37 @@ input[type="submit"] {
     border: transparent;
     float: right;
 }
+.module {
+    column-count: 2;
+}
+.square {
+    padding: 10px;
+}
+.square img {
+    position: relative;
+    content: cover;
+    border-radius: 2em;
+    width: 100%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    display: grid;
+    background-color: white;
+}
+.square:hover {
+    transform: scale(105%);
+    transition-duration: 500ms;
+    border-color: #000;
+}
+.square p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+.square:hover p {
+    transform: scale(1000%);
+    transform-style: preserve-3d;
+    opacity: 0%;
+    transition-duration: 2s;
+}

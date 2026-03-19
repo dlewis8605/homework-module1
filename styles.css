@@ -291,3 +291,19 @@ input[type="submit"] {
     opacity: 0%;
     transition-duration: 2s;
 }
+#timeofday {
+    background: linear-gradient(0deg, rgba(251,215,139,1) 0%, rgba(118,213,245,1) 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;     /* Centers content vertically */
+}
+#timeofday span {
+    color: #3a3a3a;
+    margin: 2px;
+}
+span#clock {
+    color: #125688;
+    font-weight: 600;
+}

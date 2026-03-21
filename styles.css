@@ -96,14 +96,14 @@ section #partners {
     margin: 0 auto;
     text-align: center;
 }
-section #partners .partner {
+section #partner {
     display: inline-block;
     margin: 0 0.75em;
     padding: 1.3em 1.5em;
     background-color: #fff;
     border-radius: 50%;
 }
-section #partners .partner img {
+section #partners img {
     width: 90px;
     height: 90px;
 }

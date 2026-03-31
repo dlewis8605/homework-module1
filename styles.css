@@ -248,13 +248,14 @@ input[type="radio"] {
 textarea {
     width: 100%;
 }
-input[type="submit"] {
-    display: block;
-    width: 100px;
-    height: 25px;
+form .button input {
+    width: 8em;
+    height: 2.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    /*background-color: #4977D1;*/
     color: #fff;
-    background: #4977D1;
-    border: transparent;
+    border: none;
     float: right;
 }
 .module {

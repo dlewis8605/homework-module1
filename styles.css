@@ -274,6 +274,7 @@ textarea {
 }
 .square {
     padding: 10px;
+    position: relative;
 }
 .square img {
     position: relative;
@@ -297,11 +298,35 @@ textarea {
     color: white;
     text-align: center;
 }
-.square:hover p {
-    transform: scale(1000%);
-    transform-style: preserve-3d;
+.square p#cliff1,.square p#cliff2,.square p#cliff3,.square p#cliff4{
+    font-size: 4em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    top: 60%;
+}
+.square p#cliff1desc,.square p#cliff2desc,.square p#cliff3desc,.square p#cliff4desc{
+    transform: translate(-50%, 25%);
+    color: white;
+    text-align: center;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    padding: 1em;
+    border-radius: 2em;
+    visibility: hidden;
+}
+.square:hover p#cliff1,.square:hover p#cliff2,.square:hover p#cliff3,.square:hover p#cliff4{
+    transform: translate(-50%, -50%)scale(300%);
     opacity: 0%;
+    transition-duration: 1s;
+    visibility: visible;
+}
+.square:hover p#cliff1desc,.square:hover p#cliff2desc,.square:hover p#cliff3desc,.square:hover p#cliff4desc{
+    transform: translate(-50%, -50%) scale(100%);
+    transform-style: preserve-3d;
+    opacity: 100%;
     transition-duration: 2s;
+    transition-delay: 0.1s;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 #timeofday {
     background: linear-gradient(0deg, rgba(251,215,139,1) 0%, rgba(118,213,245,1) 100%);

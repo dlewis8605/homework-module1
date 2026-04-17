@@ -1,33 +1,43 @@
 /* Body (Personal addition for neater formatting) */
 body {
-    width: 1500px;
+    max-width: 1500px;
+    min-width: 550px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Header */
 header {
-    width: 1500px;
-    min-height: 400px;
+    max-width: 1500px;
+    min-width: 550px;
+    width: 100%;
+    aspect-ratio: 1200 / 480;
+    box-sizing: border-box;
     padding-top: 3em;
     margin-left: auto;
     margin-right: auto;
 }
 #home header {
     background: no-repeat lightgrey url(images/cliff_ocean.jpg);
-    background-size: 1500px;
+    background-size: 100%;
 }
 #activities header {
-    background: no-repeat lightgrey url(images/cliff_ocean.jpg);
-    background-size: 1500px;
+    background: no-repeat lightgrey url(images/runfly.jpg);
+    background-size: 100%;
+}
+#cliffs header {
+    background: no-repeat lightgrey url(images/forest_cliff.jpg);
+    background-size: 100%;
 }
 #contact header {
-    background: no-repeat lightgrey url(images/cliff_ocean.jpg);
-    background-size: 1500px;
+    background: no-repeat lightgrey url(images/cliff_rock.jpg);
+    background-size: 100%;
 }
 .main-header {
-    background-color: rgb(255, 255, 255, 0.8);
-    width: 700px;
+    background-color: rgba(38, 41, 61, 0.7);
+    max-width: 700px;
+    width: 100%;
     margin: 2em auto 0 auto; /* <--- These are left and right values */
     min-height: 100px;
     height: 100px;
@@ -43,6 +53,7 @@ header {
 .main-menu {
     margin-left: 227px;
     font-weight: 400;
+    position: relative; /* needed for dropdown positioning */
 }
 .main-menu ul li {
     list-style-type: none;
@@ -56,7 +67,7 @@ header {
 }
 .main-menu ul li a {
     text-decoration: none;
-    color: #888;
+    color: rgb(255, 255, 255);
 }
 .main-menu ul li a:hover {
     color: #9ed034;
@@ -68,6 +79,94 @@ header {
 .main-menu ul li.active a {
     color: #fff;
 }
+
+/* --- Hamburger button (hidden on wide screens) --- */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+.nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #888;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+}
+.nav-hamburger:hover span {
+    background-color: #9ed034;
+}
+
+/* --- Mobile nav: below 1000px --- */
+@media (max-width: 999px) {
+    .main-header {
+        width: 100%;
+        position: relative;
+    }
+
+    .main-menu {
+        margin-left: 0;
+        position: static;
+    }
+
+    /* Show hamburger */
+    .nav-hamburger {
+        display: flex;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Hide the nav list by default */
+    .main-menu ul {
+        display: none;
+        position: absolute;
+        top: 100px; /* matches header height */
+        right: 0;
+        width: auto;
+        background-color: #fff;
+        z-index: 200;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Show when open */
+    .main-menu ul.open {
+        display: block;
+    }
+
+    /* Stack items vertically, preserve existing look */
+    .main-menu ul li {
+        float: none;
+        border-left: none;
+        border-top: 1px solid rgba(202, 204, 202, 0.6);
+        line-height: normal;
+        padding: 14px 25px;
+        font-size: 14px;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .main-menu ul li.active {
+        background: #9ed034;
+        border: none;
+    }
+}
+
 
 /* Main */
 main {
@@ -83,6 +182,9 @@ main h2 {
 main h3 {
     font-weight: 700;
 }
+main p {
+    font-size: 1.1rem;
+}
 
 /* Partners */
 section {
@@ -90,17 +192,23 @@ section {
     background-color: #4288C3;
 }
 section #partners {
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     padding: 2em 0 2em 0;
     margin: 0 auto;
     text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    justify-content: center;
+    gap: 1.5em; /* 1.5em ensures the vertical gap exactly mirrors the old margin: 0 0.75em horizontal spacing */
 }
-section #partner {
-    display: inline-block;
-    margin: 0 0.75em;
+section .partner, section #partner {
     padding: 1.3em 1.5em;
     background-color: #fff;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 section #partners img {
     width: 90px;
@@ -109,6 +217,7 @@ section #partners img {
 
 /* Footer */
 footer {
+    min-width: 500px;
     width: 100%;
     height: 155px;
     padding-bottom: 1em;
@@ -132,9 +241,11 @@ footer #disclaimer p {
     text-align: center;
 }
 footer #nondisclaimer .social .fa {
-    padding: 15px;
     font-size: 15px;
-    width: 15px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     margin: 0 4px;
@@ -275,6 +386,7 @@ textarea {
 .square {
     padding: 10px;
     position: relative;
+    min-width: 400px;
 }
 .square img {
     position: relative;
@@ -299,7 +411,7 @@ textarea {
     text-align: center;
 }
 .square p#cliff1,.square p#cliff2,.square p#cliff3,.square p#cliff4{
-    font-size: 4em;
+    font-size: clamp(1.4rem, 11cqi, 4em);
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     top: 60%;
 }
@@ -312,6 +424,7 @@ textarea {
     padding: 1em;
     border-radius: 2em;
     visibility: hidden;
+    font-size: clamp(0.65rem, 2.2cqi, 1rem);
 }
 .square:hover p#cliff1,.square:hover p#cliff2,.square:hover p#cliff3,.square:hover p#cliff4{
     transform: translate(-50%, -50%)scale(300%);
@@ -328,6 +441,25 @@ textarea {
     visibility: visible;
     background-color: rgba(0, 0, 0, 0.7);
 }
+
+/* --- Container query: scale square text proportionally --- */
+.square {
+    container-type: inline-size;
+    container-name: cliff-card;
+}
+
+/* --- Responsive: single column below xl (1200px) --- */
+@media (max-width: 999.99px) {
+    .module-responsive {
+        column-count: 1;
+    }
+}
+
+/* --- Responsive heading size --- */
+.mainh2 {
+    font-size: 2.5rem;
+}
+
 #timeofday {
     background: linear-gradient(0deg, rgba(251,215,139,1) 0%, rgba(118,213,245,1) 100%);
     font-family: Arial, Helvetica, sans-serif;
@@ -403,7 +535,8 @@ td.tdhighlight {
 #activities main #displaySelected {
     visibility: hidden;
     margin: 0 auto;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     border: 2px solid #9ed034;
     padding: 0.75em;
 }
@@ -426,4 +559,36 @@ td.tdhighlight {
 
 #activities main #displaySelected #sendinfo input[type="email"] {
     width: 200px;
+}
+
+/* --- Grid & Footer Responsiveness --- */
+@media (max-width: 999.99px) {
+    section #partners {
+        grid-template-columns: repeat(3, auto);
+    }
+    footer {
+        height: auto; 
+    }
+    footer #nondisclaimer .copy {
+        float: none;
+        padding: 2.5em 0;
+        text-align: center;
+    }
+    footer #nondisclaimer .social {
+        float: none;
+        margin-right: 0;
+        padding: 2.5em 0;
+        text-align: center;
+        background-color: white;
+    }
+}
+@media (max-width: 549.99px) {
+    section #partners {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+@media (max-width: 300px) {
+    section #partners {
+        grid-template-columns: repeat(1, auto);
+    }
 }

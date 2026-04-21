@@ -271,6 +271,8 @@ footer #nondisclaimer .social .fa-instagram {
 table {
     width: 1000px;
     margin: 4em auto 4em auto; /* The guide has "0 auto" for the top and bottom margin but the result does not look like the images. This way does */
+    border-collapse: separate;
+    isolation: isolate;
 }
 
 caption {
@@ -279,10 +281,14 @@ caption {
     color: #fff;
     font-size: 1.3em;
     font-weight: bold;
-    padding-top: 1em;
+    line-height: 40px;
+    padding: 0;
+    caption-side: top;
+    text-align: center;
 }
 thead {
     background: #BDE1FF;
+    text-align: center;
 }
 tbody {
     background: #EEFFE6;
@@ -326,14 +332,13 @@ legend {
     font-weight: bold;
 }
 fieldset {
-    border-color: #9ed034;
-    border-style: solid;
-    min-width: 50%;
+    border: 2px solid #9ed034;
+    width: 50%;
+    padding: 1em;
 }
 fieldset div {
     margin-top: 15px;
     margin-left: 25px;
-    margin-right: 50%;
 }
 label {
     display: block;
@@ -371,14 +376,10 @@ textarea {
     padding: 5px;
 }
 .button {
-    width: 8em;
-    height: 2.5em;
-    font-size: 1.2em;
-    font-weight: bold;
-    /*background-color: #4977D1;*/
-    color: #fff;
-    border: none;
+    width: fit-content;
     float: right;
+    clear: right;
+    margin-top: 15px;
 }
 .module {
     column-count: 2;
@@ -532,14 +533,7 @@ td.tdhighlight {
 }
 
 /* Activities Display Selected Box */
-#activities main #displaySelected {
-    visibility: hidden;
-    margin: 0 auto;
-    max-width: 600px;
-    width: 100%;
-    border: 2px solid #9ed034;
-    padding: 0.75em;
-}
+
 
 #activities main #displaySelected #result, #activities main #displaySelected #sendinfo {
     display: inline-block;

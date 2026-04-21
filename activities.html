@@ -4,6 +4,9 @@
         <title>Great Cliffs</title>
         <meta charset="utf-8">
 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
         <!-- Font Awesome Reference Link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -15,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <div id="container">
             <header>
-                <div class="main-header">
+                <div class="main-header sticky-top">
                     <div class="logo">
                         <img src="images/logo.png" alt="Great Cliffs Logo" width="125">
                         <nav class="main-menu">
@@ -89,13 +92,26 @@
                     </table>
 
             <!-- Homework Day 3 Feature: Display Selected Box -->
-            <div id="displaySelected">
-                <div id="result">
-                    <h4>My selected activities to enquire:</h4>
-                </div>
-                <div id="sendinfo">
-                    <input type="email" placeholder="johndoe@gmail.com">
-                    <button>Get Info</button>
+            <div class="modal fade" id="displaySelected" tabindex="-1" aria-labelledby="displaySelectedLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="displaySelectedLabel">Selected Activities</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="result">
+                                <h4>My selected activities to enquire:</h4>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Back to Activities</button>
+                            <div id="sendinfo">
+                                <input type="email" placeholder="johndoe@gmail.com">
+                                <button type="button" class="btn btn-primary">Get Info</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main><!-- End of Main Content -->
@@ -125,6 +141,7 @@
         </div> <!-- End Container -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/site_scripts.js"></script>
         <script src="js/activity.js"></script>
         <script src="js/nav.js"></script>

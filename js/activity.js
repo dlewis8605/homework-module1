@@ -16,18 +16,12 @@ $(document).ready(function() {
 
         if (content !== "Not Available") { // check if content is a valid activity
             $(this).toggleClass("tdhighlight"); // add or remove class when cell is selected
+            $('#displaySelected').modal('show'); // pop up Bootstrap Modal unconditionally on selection toggle
 
             if ($(this).hasClass("tdhighlight")) { // check if selected cell has class
-                $('#displaySelected').css("visibility", "visible"); // make display box visible
-                $('#displaySelected').css("margin-top", "2em"); // add spaces above display box
                 $('#result').append("<p>" + content + " at " + cliffName + "</p>"); // add child element with content and cliff name
             } else { // if selected cell doesn't have class
                 $('#result p:contains("' + content + '")').remove(); // remove child element from display box
-                
-                if ($('#result').has('p').length == false) { // check if there are any child elements left within parent
-                    $('#displaySelected').css("visibility", "hidden"); // make display box hidden
-                    $('#displaySelected').css("margin-top", "0"); // remove spaces above display box
-                }
             }
         }
     });

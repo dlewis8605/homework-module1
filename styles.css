@@ -137,7 +137,7 @@ header {
         top: 100px; /* matches header height */
         right: 0;
         width: auto;
-        background-color: #fff;
+        background-color: rgba(38, 41, 61, 0.9);
         z-index: 200;
         margin: 0;
         padding: 0;
